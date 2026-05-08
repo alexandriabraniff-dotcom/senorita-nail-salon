@@ -70,7 +70,14 @@ export default function Footer() {
           <div className="flex flex-col gap-3 text-sm text-background/60">
             <div className="flex items-start gap-2">
               <MapPin size={15} className="mt-0.5 shrink-0 text-background/40" />
-              <span>90 Glen Osmond Rd, Parkside SA 5063</span>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=90+Glen+Osmond+Rd+Parkside+SA+5063"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-background transition-colors"
+              >
+                90 Glen Osmond Rd, Parkside SA 5063
+              </a>
             </div>
             <div className="flex items-center gap-2">
               <Phone size={15} className="shrink-0 text-background/40" />
@@ -120,7 +127,14 @@ export default function Footer() {
       <div className="border-t border-background/10">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-background/40">
           <span>© {new Date().getFullYear()} Senorita Nail Salon. All rights reserved.</span>
-          <span>90 Glen Osmond Rd, Parkside SA 5063</span>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=90+Glen+Osmond+Rd+Parkside+SA+5063"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-background/60 transition-colors"
+          >
+            90 Glen Osmond Rd, Parkside SA 5063
+          </a>
         </div>
       </div>
     </footer>
