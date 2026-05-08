@@ -122,26 +122,6 @@ export default function HomePage() {
         <GeometricCorner position="tl" />
         <GeometricCorner position="br" />
 
-        {/* Watermark "SN" */}
-        <div
-          className="absolute inset-0 flex items-center justify-start pl-8 pointer-events-none select-none"
-          aria-hidden="true"
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(14rem, 30vw, 26rem)",
-              fontWeight: 700,
-              lineHeight: 1,
-              color: "oklch(0.65 0.09 50)",
-              opacity: 0.04,
-              letterSpacing: "-0.05em",
-            }}
-          >
-            SN
-          </span>
-        </div>
-
         <div className="relative max-w-6xl mx-auto px-6 py-20 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left */}
           <motion.div
@@ -238,7 +218,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[440px] md:h-[540px] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=1200&q=85&auto=format&fit=crop"
+                src="/images/nails-01.jpg"
                 alt="Luxury nail art — Senorita Nail Salon Parkside Adelaide"
                 fill
                 className="object-cover object-center"
@@ -277,8 +257,8 @@ export default function HomePage() {
               }}
             />
             <Image
-              src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=900&q=85&auto=format&fit=crop"
-              alt="Senorita Nail Salon interior"
+              src="/images/nails-02.jpg"
+              alt="Nail art by Senorita Nail Salon"
               fill
               className="object-cover object-center"
             />
@@ -307,9 +287,9 @@ export default function HomePage() {
                 color: "oklch(0.96 0.006 60)",
               }}
             >
-              A salon built for
+              Nail art you'll
               <br />
-              <em style={{ color: "oklch(0.65 0.09 50)" }}>women who notice.</em>
+              <em style={{ color: "oklch(0.65 0.09 50)" }}>actually obsess over.</em>
             </h2>
 
             <div className="my-6">
@@ -320,19 +300,18 @@ export default function HomePage() {
               className="leading-relaxed mb-4 text-sm"
               style={{ color: "oklch(0.70 0.01 50)" }}
             >
-              Senorita was designed from the floor up to be extraordinary. Our
-              3D geometric walls, sculptural rose gold chandelier, and plush
-              caramel leather pedicure chairs create an environment where
-              every detail has been considered — because our clients are the
-              kind of women who notice.
+              At Senorita, nails are the entire focus. Whether you're after a
+              clean gel set, a full SNS, or something completely custom —
+              Khadija and Mani bring precision and creativity to every single
+              appointment.
             </p>
             <p
               className="leading-relaxed mb-8 text-sm"
               style={{ color: "oklch(0.70 0.01 50)" }}
             >
-              From a simple buff and polish to intricate custom nail art, our
-              team brings artistry and precision to every appointment. You
-              arrive as you are. You leave flawless.
+              Set in a stunning contemporary salon on Glen Osmond Road,
+              Parkside, every visit is relaxed, unhurried, and finished to a
+              standard you'll want to show off.
             </p>
             <Link
               href="/about"
@@ -348,7 +327,7 @@ export default function HomePage() {
 
       {/* ── SERVICES + GALLERY cards ──────────────────────────── */}
       <section
-        className="py-24 px-6"
+        className="py-14 px-6"
         style={{
           backgroundColor: "oklch(0.98 0.008 60)",
           backgroundImage: diamondTileLight,
@@ -356,62 +335,59 @@ export default function HomePage() {
       >
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-5"
+            transition={{ duration: 0.5 }}
+            className="flex items-center justify-between mb-6"
           >
-            <p
-              className="text-xs tracking-[0.35em] uppercase mb-3"
-              style={{ color: "oklch(0.65 0.09 50)" }}
-            >
-              Explore
-            </p>
-            <h2
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                fontWeight: 400,
-                lineHeight: 1.15,
-              }}
-            >
-              Every visit, a pampering experience
-            </h2>
+            <div>
+              <p
+                className="text-xs tracking-[0.35em] uppercase mb-1"
+                style={{ color: "oklch(0.65 0.09 50)" }}
+              >
+                Explore
+              </p>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
+                  fontWeight: 400,
+                  lineHeight: 1.2,
+                }}
+              >
+                Services &amp; Gallery
+              </h2>
+            </div>
+            <DiamondDivider />
           </motion.div>
 
-          <div className="mb-12">
-            <DiamondDivider />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
                 href: "/services",
                 eyebrow: "Menu",
                 label: "Services & Pricing",
-                desc: "Manicures, pedicures, SNS, gel, nail art — with clear pricing for every service.",
-                image:
-                  "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&q=80&auto=format&fit=crop",
+                desc: "Manicures, pedicures, SNS, gel, nail art — clear pricing for every service.",
+                image: "/images/nails-04.jpg",
                 alt: "Nail art services",
               },
               {
                 href: "/gallery",
                 eyebrow: "Portfolio",
                 label: "Gallery",
-                desc: "From classic French tips to intricate custom designs — see the art we create every day.",
-                image:
-                  "https://images.unsplash.com/photo-1519659528534-7fd733a832a0?w=900&q=80&auto=format&fit=crop",
+                desc: "From classic French tips to intricate custom designs — see the art we create.",
+                image: "/images/nails-09.jpg",
                 alt: "Nail gallery",
               },
             ].map((card, i) => (
               <motion.div
                 key={card.href}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.1, ease: "easeOut" }}
-                className="group relative overflow-hidden h-80 cursor-pointer"
+                transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
+                className="group relative overflow-hidden h-56 cursor-pointer"
               >
                 <Link href={card.href}>
                   <Image
@@ -420,46 +396,38 @@ export default function HomePage() {
                     fill
                     className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent transition-opacity duration-300" />
-                  {/* Rose gold border reveal on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
                   <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-                    style={{
-                      boxShadow: "inset 0 0 0 2px oklch(0.65 0.09 50 / 0.6)",
-                    }}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{ boxShadow: "inset 0 0 0 2px oklch(0.65 0.09 50 / 0.6)" }}
                   />
-                  {/* Diamond corner accent */}
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg width="12" height="12" viewBox="0 0 12 12">
-                      <path
-                        d="M6 0 L12 6 L6 12 L0 6 Z"
-                        fill="oklch(0.65 0.09 50)"
-                      />
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg width="10" height="10" viewBox="0 0 10 10">
+                      <path d="M5 0 L10 5 L5 10 L0 5 Z" fill="oklch(0.65 0.09 50)" />
                     </svg>
                   </div>
-                  <div className="absolute bottom-0 left-0 p-8 text-white">
-                    <p className="text-xs tracking-[0.3em] uppercase mb-1 text-white/50">
+                  <div className="absolute bottom-0 left-0 p-5 text-white">
+                    <p className="text-xs tracking-[0.3em] uppercase mb-0.5 text-white/50">
                       {card.eyebrow}
                     </p>
                     <h3
-                      className="mb-2"
+                      className="mb-1"
                       style={{
                         fontFamily: "var(--font-display)",
-                        fontSize: "1.75rem",
+                        fontSize: "1.4rem",
                         fontWeight: 400,
                       }}
                     >
                       {card.label}
                     </h3>
-                    <p className="text-sm text-white/65 leading-relaxed max-w-xs">
+                    <p className="text-xs text-white/60 leading-relaxed max-w-xs">
                       {card.desc}
                     </p>
                     <p
-                      className="text-xs tracking-widest uppercase mt-4 flex items-center gap-2"
+                      className="text-xs tracking-widest uppercase mt-3 flex items-center gap-1.5"
                       style={{ color: "oklch(0.65 0.09 50)" }}
                     >
-                      Explore <ArrowRight size={12} />
+                      Explore <ArrowRight size={11} />
                     </p>
                   </div>
                 </Link>
@@ -471,6 +439,7 @@ export default function HomePage() {
 
       {/* ── FIND US ──────────────────────────────────────────── */}
       <section
+        id="find-us"
         className="relative overflow-hidden py-24 px-6"
         style={{
           backgroundColor: "oklch(0.16 0.008 40)",
@@ -531,7 +500,10 @@ export default function HomePage() {
               </h3>
               <div
                 className="overflow-hidden"
-                style={{ border: "1px solid oklch(0.65 0.09 50 / 0.2)" }}
+                style={{
+                  border: "1px solid oklch(0.65 0.09 50 / 0.3)",
+                  backgroundColor: "oklch(0.99 0.004 60)",
+                }}
               >
                 {hours.map((h, i) => {
                   const isToday = h.day === today;
@@ -542,9 +514,9 @@ export default function HomePage() {
                         i < hours.length - 1 ? "border-b" : ""
                       }`}
                       style={{
-                        borderColor: "oklch(0.65 0.09 50 / 0.12)",
+                        borderColor: "oklch(0.90 0.012 55)",
                         backgroundColor: isToday
-                          ? "oklch(0.65 0.09 50 / 0.12)"
+                          ? "oklch(0.65 0.09 50 / 0.08)"
                           : "transparent",
                       }}
                     >
@@ -553,8 +525,8 @@ export default function HomePage() {
                         className="w-24 shrink-0"
                         style={{
                           color: isToday
-                            ? "oklch(0.65 0.09 50)"
-                            : "oklch(0.72 0.01 50)",
+                            ? "oklch(0.55 0.09 50)"
+                            : "oklch(0.30 0.01 50)",
                           fontWeight: isToday ? 500 : 400,
                         }}
                       >
@@ -580,7 +552,7 @@ export default function HomePage() {
                       {/* Dotted leader */}
                       <span
                         className="flex-1 border-b border-dashed"
-                        style={{ borderColor: "oklch(0.65 0.09 50 / 0.15)" }}
+                        style={{ borderColor: "oklch(0.80 0.012 55)" }}
                       />
 
                       {/* Time */}
@@ -588,7 +560,7 @@ export default function HomePage() {
                         className="shrink-0 tabular-nums"
                         style={{
                           color: isToday
-                            ? "oklch(0.92 0.006 60)"
+                            ? "oklch(0.35 0.008 50)"
                             : "oklch(0.50 0.01 50)",
                           fontSize: "0.8rem",
                         }}
@@ -601,7 +573,7 @@ export default function HomePage() {
               </div>
               <p
                 className="text-xs mt-3"
-                style={{ color: "oklch(0.45 0.01 50)" }}
+                style={{ color: "oklch(0.55 0.01 50)" }}
               >
                 Today highlighted. Hours may vary on public holidays.
               </p>
@@ -711,18 +683,6 @@ export default function HomePage() {
                 />
               </div>
 
-              <motion.a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 px-7 py-3.5 text-sm tracking-widest uppercase text-white self-start transition-opacity hover:opacity-90"
-                style={{ backgroundColor: "oklch(0.65 0.09 50)" }}
-              >
-                Book Your Visit
-                <ArrowRight size={13} />
-              </motion.a>
             </motion.div>
           </div>
         </div>

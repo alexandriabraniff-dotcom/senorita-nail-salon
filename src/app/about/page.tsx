@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import type { Metadata } from "next";
 
 const BOOKING_URL =
   "https://www.fresha.com/lvp/senorita-nail-salon-glen-osmond-road-parkside-znyE52";
+
+const diamondTileDark = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 2 L46 24 L24 46 L2 24 Z' fill='none' stroke='%23FAF7F4' stroke-width='0.5' stroke-opacity='0.07'/%3E%3C/svg%3E")`;
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
@@ -15,52 +16,52 @@ const fadeUp = {
   transition: { duration: 0.65, ease: "easeOut" },
 };
 
-const interiorFeatures = [
-  {
-    title: "Statement Lighting",
-    desc: "A sculptural rose gold chandelier crowns the space, casting a warm, flattering glow over every treatment.",
-  },
-  {
-    title: "Plush Pedicure Chairs",
-    desc: "Caramel leather massage chairs line our pedicure station — designed for maximum comfort during your treatment.",
-  },
-  {
-    title: "Geometric Walls",
-    desc: "3D diamond panel walls create a stunning visual contrast — the perfect backdrop for your post-appointment photo.",
-  },
-  {
-    title: "Elegant Reception",
-    desc: "A curved white reception desk with a dark countertop sets the tone for a sleek, modern welcome experience.",
-  },
-];
-
 export default function AboutPage() {
   return (
     <>
       {/* Page hero */}
-      <section className="relative h-64 md:h-80 overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=1600&q=85&auto=format&fit=crop"
-          alt="Senorita Nail Salon interior"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-          <p className="text-white/60 text-xs tracking-[0.3em] uppercase mb-3">
+      <section
+        className="relative overflow-hidden py-24 px-6 text-center"
+        style={{
+          backgroundColor: "oklch(0.12 0.008 40)",
+          backgroundImage: diamondTileDark,
+        }}
+      >
+        {/* Geometric corner accents */}
+        <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M0 0 L64 0 L0 64 Z" stroke="rgba(250,247,244,0.12)" strokeWidth="1" fill="none"/>
+            <path d="M0 0 L32 0 L0 32 Z" stroke="rgba(250,247,244,0.08)" strokeWidth="0.6" fill="none"/>
+          </svg>
+        </div>
+        <div className="absolute bottom-0 right-0 w-16 h-16 rotate-180 pointer-events-none">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M0 0 L64 0 L0 64 Z" stroke="rgba(250,247,244,0.12)" strokeWidth="1" fill="none"/>
+            <path d="M0 0 L32 0 L0 32 Z" stroke="rgba(250,247,244,0.08)" strokeWidth="0.6" fill="none"/>
+          </svg>
+        </div>
+        <div className="relative z-10">
+          <p className="text-xs tracking-[0.35em] uppercase mb-4" style={{ color: "oklch(0.65 0.09 50)" }}>
             Our Story
           </p>
           <h1
-            className="text-white"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(2.5rem, 5vw, 4rem)",
               fontWeight: 300,
+              color: "oklch(0.96 0.006 60)",
             }}
           >
             About Senorita Nails
           </h1>
+          {/* Diamond divider */}
+          <div className="flex items-center justify-center gap-4 mt-6 max-w-xs mx-auto">
+            <div className="flex-1 h-px" style={{ backgroundColor: "oklch(0.98 0.008 60)", opacity: 0.2 }} />
+            <svg width="10" height="10" viewBox="0 0 10 10" style={{ color: "oklch(0.65 0.09 50)", opacity: 0.7 }}>
+              <path d="M5 0 L10 5 L5 10 L0 5 Z" fill="currentColor" />
+            </svg>
+            <div className="flex-1 h-px" style={{ backgroundColor: "oklch(0.98 0.008 60)", opacity: 0.2 }} />
+          </div>
         </div>
       </section>
 
@@ -121,69 +122,12 @@ export default function AboutPage() {
             className="relative h-[420px] rounded-sm overflow-hidden"
           >
             <Image
-              src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&q=85&auto=format&fit=crop"
+              src="/images/nails-10.jpg"
               alt="Nail art at Senorita"
               fill
               className="object-cover object-center"
             />
           </motion.div>
-        </div>
-      </section>
-
-      {/* Interior features */}
-      <section
-        className="py-24 px-6"
-        style={{ backgroundColor: "oklch(0.94 0.012 55)" }}
-      >
-        <div className="max-w-6xl mx-auto">
-          <motion.div {...fadeUp} className="text-center mb-16">
-            <p
-              className="text-xs tracking-[0.3em] uppercase mb-3"
-              style={{ color: "oklch(0.65 0.09 50)" }}
-            >
-              The Space
-            </p>
-            <h2
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                fontWeight: 400,
-              }}
-            >
-              Contemporary glam, designed for you
-            </h2>
-            <p className="text-muted-foreground mt-4 max-w-lg mx-auto leading-relaxed">
-              Every corner of Senorita has been thoughtfully designed to create
-              a relaxing, Instagram-worthy environment.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {interiorFeatures.map((feature, i) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-                className="bg-card rounded-sm p-8 border border-border"
-              >
-                <h3
-                  className="mb-3"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "1.35rem",
-                    fontWeight: 400,
-                  }}
-                >
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -7,12 +7,30 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
+function InstagramIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+  );
+}
+
+function FacebookIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    </svg>
+  );
+}
+
 const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/find-us", label: "Find Us" },
+  { href: "/#find-us", label: "Find Us" },
 ];
 
 const BOOKING_URL =
@@ -74,11 +92,33 @@ export default function Nav() {
               {label}
             </Link>
           ))}
+          <div className="flex items-center gap-3 ml-1">
+            <a
+              href="https://www.instagram.com/senoritanailsandbeauty/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity hover:opacity-60"
+              style={{ color: "oklch(0.65 0.09 50)" }}
+              aria-label="Instagram"
+            >
+              <InstagramIcon size={16} />
+            </a>
+            <a
+              href="https://www.facebook.com/SenoritaNailSalon/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity hover:opacity-60"
+              style={{ color: "oklch(0.65 0.09 50)" }}
+              aria-label="Facebook"
+            >
+              <FacebookIcon size={16} />
+            </a>
+          </div>
           <a
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 px-5 py-2.5 text-sm tracking-wide text-white rounded-sm transition-opacity hover:opacity-90"
+            className="ml-1 px-5 py-2.5 text-sm tracking-wide text-white rounded-sm transition-opacity hover:opacity-90"
             style={{ backgroundColor: "oklch(0.65 0.09 50)" }}
           >
             Book Now
@@ -119,11 +159,33 @@ export default function Nav() {
                   {label}
                 </Link>
               ))}
+              <div className="flex items-center gap-4 pt-1">
+                <a
+                  href="https://www.instagram.com/senoritanailsandbeauty/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm transition-opacity hover:opacity-60"
+                  style={{ color: "oklch(0.65 0.09 50)" }}
+                >
+                  <InstagramIcon size={16} />
+                  Instagram
+                </a>
+                <a
+                  href="https://www.facebook.com/SenoritaNailSalon/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm transition-opacity hover:opacity-60"
+                  style={{ color: "oklch(0.65 0.09 50)" }}
+                >
+                  <FacebookIcon size={16} />
+                  Facebook
+                </a>
+              </div>
               <a
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 px-5 py-3 text-sm tracking-wide text-white text-center rounded-sm"
+                className="mt-1 px-5 py-3 text-sm tracking-wide text-white text-center rounded-sm"
                 style={{ backgroundColor: "oklch(0.65 0.09 50)" }}
               >
                 Book Now

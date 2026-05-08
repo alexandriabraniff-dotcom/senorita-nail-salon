@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
+
+const diamondTileLight = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 2 L46 24 L24 46 L2 24 Z' fill='none' stroke='%23C9956C' stroke-width='0.6' stroke-opacity='0.14'/%3E%3C/svg%3E")`;
 
 function InstagramIcon({ size = 15 }: { size?: number }) {
   return (
@@ -14,48 +15,63 @@ function InstagramIcon({ size = 15 }: { size?: number }) {
   );
 }
 
-const BOOKING_URL =
-  "https://www.fresha.com/lvp/senorita-nail-salon-glen-osmond-road-parkside-znyE52";
+function FacebookIcon({ size = 15 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    </svg>
+  );
+}
 
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80&auto=format&fit=crop",
-    alt: "Custom nail art design",
+    src: "/images/nails-01.jpg",
+    alt: "Pink gel nails with white dot detail",
     span: "col-span-1 row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1610992235683-e39abc5e8b44?w=800&q=80&auto=format&fit=crop",
-    alt: "Gel nail extensions",
+    src: "/images/nails-02.jpg",
+    alt: "Gold stripe French tips",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1519659528534-7fd733a832a0?w=800&q=80&auto=format&fit=crop",
-    alt: "Pedicure treatment",
+    src: "/images/nails-03.jpg",
+    alt: "Burgundy glam nails with gold detail",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80&auto=format&fit=crop",
-    alt: "Shellac manicure",
+    src: "/images/nails-04.jpg",
+    alt: "Dark red nails with pearl accent",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1598447068814-13b7ff5e6b20?w=800&q=80&auto=format&fit=crop",
-    alt: "Acrylic nails with nail art",
+    src: "/images/nails-05.jpg",
+    alt: "Terracotta nails with white leaf art",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?w=800&q=80&auto=format&fit=crop",
-    alt: "SNS dip powder nails",
+    src: "/images/nails-06.jpg",
+    alt: "Dark red coffin nails",
     span: "col-span-1 row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80&auto=format&fit=crop&crop=top",
-    alt: "French tips nail art",
+    src: "/images/nails-07.jpg",
+    alt: "French tips with heart nail art",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1583943756691-a3efdd87a45e?w=800&q=80&auto=format&fit=crop",
-    alt: "Luxury nail salon treatment",
+    src: "/images/nails-08.jpg",
+    alt: "Teal gel nails with silver detail",
+    span: "col-span-1",
+  },
+  {
+    src: "/images/nails-09.jpg",
+    alt: "French manicure with glitter tips",
+    span: "col-span-1",
+  },
+  {
+    src: "/images/nails-10.jpg",
+    alt: "Pink French tips with bow nail art",
     span: "col-span-1",
   },
 ];
@@ -65,9 +81,19 @@ export default function GalleryPage() {
     <>
       {/* Header */}
       <section
-        className="py-20 px-6 text-center"
-        style={{ backgroundColor: "oklch(0.94 0.012 55)" }}
+        className="relative py-20 px-6 text-center overflow-hidden"
+        style={{ backgroundColor: "oklch(0.94 0.012 55)", backgroundImage: diamondTileLight }}
       >
+        <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M0 0 L64 0 L0 64 Z" stroke="oklch(0.65 0.09 50 / 0.15)" strokeWidth="1" fill="none"/>
+          </svg>
+        </div>
+        <div className="absolute bottom-0 right-0 w-16 h-16 rotate-180 pointer-events-none">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M0 0 L64 0 L0 64 Z" stroke="oklch(0.65 0.09 50 / 0.15)" strokeWidth="1" fill="none"/>
+          </svg>
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -88,20 +114,39 @@ export default function GalleryPage() {
           >
             Gallery
           </h1>
+          <div className="flex items-center justify-center gap-4 mt-5 max-w-xs mx-auto">
+            <div className="flex-1 h-px" style={{ backgroundColor: "oklch(0.65 0.09 50)", opacity: 0.25 }} />
+            <svg width="9" height="9" viewBox="0 0 9 9" style={{ color: "oklch(0.65 0.09 50)", opacity: 0.6 }}>
+              <path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="currentColor" />
+            </svg>
+            <div className="flex-1 h-px" style={{ backgroundColor: "oklch(0.65 0.09 50)", opacity: 0.25 }} />
+          </div>
           <p className="text-muted-foreground mt-4 max-w-md mx-auto leading-relaxed">
-            A glimpse into the art we create every day. Follow us on Instagram
-            for the latest nail inspo.
+            A glimpse into the art we create every day.
           </p>
-          <a
-            href="https://www.instagram.com/senoritanailsandbeauty/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-5 text-sm tracking-wide border-b pb-0.5 border-current hover:opacity-70 transition-opacity"
-            style={{ color: "oklch(0.65 0.09 50)" }}
-          >
-            <InstagramIcon size={15} />
-            @senoritanailsandbeauty
-          </a>
+          <div className="flex items-center justify-center gap-5 mt-5">
+            <a
+              href="https://www.instagram.com/senoritanailsandbeauty/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm tracking-wide border-b pb-0.5 border-current hover:opacity-70 transition-opacity"
+              style={{ color: "oklch(0.65 0.09 50)" }}
+            >
+              <InstagramIcon size={15} />
+              @senoritanailsandbeauty
+            </a>
+            <span style={{ color: "oklch(0.80 0.012 55)" }}>·</span>
+            <a
+              href="https://www.facebook.com/SenoritaNailSalon/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm tracking-wide border-b pb-0.5 border-current hover:opacity-70 transition-opacity"
+              style={{ color: "oklch(0.65 0.09 50)" }}
+            >
+              <FacebookIcon size={15} />
+              Senorita Nail Salon
+            </a>
+          </div>
         </motion.div>
       </section>
 
@@ -127,51 +172,6 @@ export default function GalleryPage() {
           ))}
         </div>
 
-        {/* Instagram CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mt-16"
-        >
-          <p className="text-muted-foreground mb-2 text-sm">
-            See more of our work on Instagram
-          </p>
-          <a
-            href="https://www.instagram.com/senoritanailsandbeauty/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-7 py-3.5 text-sm tracking-wide text-white rounded-sm mt-2 transition-opacity hover:opacity-90"
-            style={{ backgroundColor: "oklch(0.65 0.09 50)" }}
-          >
-            <InstagramIcon size={15} />
-            Follow @senoritanailsandbeauty
-          </a>
-        </motion.div>
-
-        {/* Book CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-center mt-8"
-        >
-          <p className="text-muted-foreground text-sm mb-4">
-            Like what you see? Book your appointment today.
-          </p>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm tracking-wide border-b pb-0.5 border-current hover:opacity-70 transition-opacity"
-            style={{ color: "oklch(0.65 0.09 50)" }}
-          >
-            Book on Fresha
-            <ArrowRight size={15} />
-          </a>
-        </motion.div>
       </section>
     </>
   );

@@ -3,6 +3,8 @@
 import { motion } from "motion/react";
 import { ArrowRight, Clock } from "lucide-react";
 
+const diamondTileLight = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 2 L46 24 L24 46 L2 24 Z' fill='none' stroke='%23C9956C' stroke-width='0.6' stroke-opacity='0.14'/%3E%3C/svg%3E")`;
+
 const BOOKING_URL =
   "https://www.fresha.com/lvp/senorita-nail-salon-glen-osmond-road-parkside-znyE52";
 
@@ -101,10 +103,20 @@ export default function ServicesPage() {
     <>
       {/* Page header */}
       <section
-        className="py-20 px-6 text-center"
-        style={{ backgroundColor: "oklch(0.94 0.012 55)" }}
+        className="relative py-20 px-6 text-center overflow-hidden"
+        style={{ backgroundColor: "oklch(0.94 0.012 55)", backgroundImage: diamondTileLight }}
       >
-        <motion.div {...fadeUp}>
+        <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M0 0 L64 0 L0 64 Z" stroke="oklch(0.65 0.09 50 / 0.15)" strokeWidth="1" fill="none"/>
+          </svg>
+        </div>
+        <div className="absolute bottom-0 right-0 w-16 h-16 rotate-180 pointer-events-none">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M0 0 L64 0 L0 64 Z" stroke="oklch(0.65 0.09 50 / 0.15)" strokeWidth="1" fill="none"/>
+          </svg>
+        </div>
+        <motion.div {...fadeUp} className="relative z-10">
           <p
             className="text-xs tracking-[0.3em] uppercase mb-3"
             style={{ color: "oklch(0.65 0.09 50)" }}
@@ -120,6 +132,13 @@ export default function ServicesPage() {
           >
             Our Menu
           </h1>
+          <div className="flex items-center justify-center gap-4 mt-5 max-w-xs mx-auto">
+            <div className="flex-1 h-px" style={{ backgroundColor: "oklch(0.65 0.09 50)", opacity: 0.25 }} />
+            <svg width="9" height="9" viewBox="0 0 9 9" style={{ color: "oklch(0.65 0.09 50)", opacity: 0.6 }}>
+              <path d="M4.5 0 L9 4.5 L4.5 9 L0 4.5 Z" fill="currentColor" />
+            </svg>
+            <div className="flex-1 h-px" style={{ backgroundColor: "oklch(0.65 0.09 50)", opacity: 0.25 }} />
+          </div>
           <p className="text-muted-foreground mt-4 max-w-md mx-auto leading-relaxed">
             From a simple polish to full custom nail art — we have a service
             for every occasion and every budget.
@@ -215,7 +234,7 @@ export default function ServicesPage() {
             className="inline-flex items-center gap-2 px-10 py-4 text-sm tracking-wide text-white rounded-sm"
             style={{ backgroundColor: "oklch(0.65 0.09 50)" }}
           >
-            Book on Fresha
+            Book Now
             <ArrowRight size={15} />
           </motion.a>
         </motion.div>
