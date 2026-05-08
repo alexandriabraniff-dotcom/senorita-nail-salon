@@ -3,7 +3,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ArrowRight, Phone, MapPin, Clock } from "lucide-react";
+import { ArrowRight, Phone, MapPin } from "lucide-react";
+
+function InstagramIcon({ size = 15 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+  );
+}
+
+function FacebookIcon({ size = 15 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    </svg>
+  );
+}
 
 const BOOKING_URL =
   "https://www.fresha.com/lvp/senorita-nail-salon-glen-osmond-road-parkside-znyE52";
@@ -520,33 +538,59 @@ export default function HomePage() {
                   return (
                     <div
                       key={h.day}
-                      className={`flex justify-between items-center px-5 py-3 text-sm ${
-                        i < hours.length - 1
-                          ? "border-b"
-                          : ""
+                      className={`flex items-center gap-3 px-5 py-3.5 text-sm ${
+                        i < hours.length - 1 ? "border-b" : ""
                       }`}
                       style={{
-                        borderColor: "oklch(0.65 0.09 50 / 0.15)",
+                        borderColor: "oklch(0.65 0.09 50 / 0.12)",
                         backgroundColor: isToday
-                          ? "oklch(0.65 0.09 50 / 0.15)"
+                          ? "oklch(0.65 0.09 50 / 0.12)"
                           : "transparent",
                       }}
                     >
+                      {/* Day */}
                       <span
+                        className="w-24 shrink-0"
                         style={{
                           color: isToday
                             ? "oklch(0.65 0.09 50)"
-                            : "oklch(0.75 0.01 50)",
+                            : "oklch(0.72 0.01 50)",
                           fontWeight: isToday ? 500 : 400,
                         }}
                       >
                         {h.day}
                       </span>
+
+                      {/* Today pill */}
+                      {isToday && (
+                        <span
+                          className="text-xs px-2 py-0.5 shrink-0 tracking-wide"
+                          style={{
+                            backgroundColor: "oklch(0.65 0.09 50)",
+                            color: "oklch(0.98 0.004 60)",
+                            fontSize: "0.6rem",
+                            letterSpacing: "0.08em",
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          Today
+                        </span>
+                      )}
+
+                      {/* Dotted leader */}
                       <span
+                        className="flex-1 border-b border-dashed"
+                        style={{ borderColor: "oklch(0.65 0.09 50 / 0.15)" }}
+                      />
+
+                      {/* Time */}
+                      <span
+                        className="shrink-0 tabular-nums"
                         style={{
                           color: isToday
-                            ? "oklch(0.96 0.006 60)"
-                            : "oklch(0.55 0.01 50)",
+                            ? "oklch(0.92 0.006 60)"
+                            : "oklch(0.50 0.01 50)",
+                          fontSize: "0.8rem",
                         }}
                       >
                         {h.time}
@@ -610,14 +654,6 @@ export default function HomePage() {
                       </a>
                     ),
                   },
-                  {
-                    icon: Clock,
-                    content: (
-                      <span style={{ color: "oklch(0.55 0.01 50)" }}>
-                        Mon–Fri from 9:30 AM &middot; Sat 9:00 AM &middot; Sun 10:00 AM
-                      </span>
-                    ),
-                  },
                 ].map(({ icon: Icon, content }, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <Icon
@@ -628,6 +664,34 @@ export default function HomePage() {
                     {content}
                   </div>
                 ))}
+
+                {/* Social media links */}
+                <div className="flex gap-4 pt-1">
+                  <a
+                    href="https://www.instagram.com/senoritanailsandbeauty/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
+                    style={{ color: "oklch(0.75 0.01 50)" }}
+                  >
+                    <span style={{ color: "oklch(0.65 0.09 50)" }}>
+                      <InstagramIcon size={15} />
+                    </span>
+                    Instagram
+                  </a>
+                  <a
+                    href="https://www.facebook.com/SenoritaNailSalon/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
+                    style={{ color: "oklch(0.75 0.01 50)" }}
+                  >
+                    <span style={{ color: "oklch(0.65 0.09 50)" }}>
+                      <FacebookIcon size={15} />
+                    </span>
+                    Facebook
+                  </a>
+                </div>
               </div>
 
               {/* Map */}
