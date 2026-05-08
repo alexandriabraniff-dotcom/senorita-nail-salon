@@ -12,8 +12,8 @@ const diamondTileDark = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.65, ease: "easeOut" },
+  viewport: { once: true, margin: "-60px" as const },
+  transition: { duration: 0.65, ease: "easeOut" as const },
 };
 
 export default function AboutPage() {
