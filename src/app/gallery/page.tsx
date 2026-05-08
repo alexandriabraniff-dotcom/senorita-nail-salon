@@ -2,7 +2,17 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { ArrowRight, Instagram } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+function InstagramIcon({ size = 15 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+  );
+}
 
 const BOOKING_URL =
   "https://www.fresha.com/lvp/senorita-nail-salon-glen-osmond-road-parkside-znyE52";
@@ -89,7 +99,7 @@ export default function GalleryPage() {
             className="inline-flex items-center gap-2 mt-5 text-sm tracking-wide border-b pb-0.5 border-current hover:opacity-70 transition-opacity"
             style={{ color: "oklch(0.65 0.09 50)" }}
           >
-            <Instagram size={15} />
+            <InstagramIcon size={15} />
             @senoritanailsandbeauty
           </a>
         </motion.div>
@@ -135,7 +145,7 @@ export default function GalleryPage() {
             className="inline-flex items-center gap-2 px-7 py-3.5 text-sm tracking-wide text-white rounded-sm mt-2 transition-opacity hover:opacity-90"
             style={{ backgroundColor: "oklch(0.65 0.09 50)" }}
           >
-            <Instagram size={15} />
+            <InstagramIcon size={15} />
             Follow @senoritanailsandbeauty
           </a>
         </motion.div>
